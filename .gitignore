@@ -1,0 +1,9 @@
+*.csv
+*.tmp
+*.log
+*.pdf
+*.xlsx
+*.txt
+!5.Discussion with Camilla/24_Clean_FINALLL_GENES.xlsx
+!5.Discussion with Camilla/~$24_Clean_FINALLL_GENES.xlsx
+**/.ipynb_checkpoints/
