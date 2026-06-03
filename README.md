@@ -50,6 +50,50 @@ Script:
 
 ---
 
+### 6. Pathway Analysis (Reactome)
+
+**Input:** `Shared_genes_final.xlsx`  
+**Output:** Reactome pathway enrichment tables and pathway hierarchy annotations  
+
+Script:
+
+- `5.Pathway_analysis/script6_reactome_pathway_analysis.R`
+
+This module performs pathway-level functional annotation of the identified genes using Reactome-based enrichment analysis. Gene symbols are mapped to Entrez identifiers and analysed using the `ReactomePA` R package. In addition, pathway hierarchy information is retrieved via the Reactome Content Service API to provide higher-level functional context.
+
+The analysis is performed at the single-gene level and results are aggregated to generate a comprehensive mapping of pathway involvement across the final gene set.
+
+---
+
+### 7. Single-Cell Expression Mapping
+
+**Input:** `Shared_genes_final.xlsx`  
+**Output:** cell-type expression matrices, tau specificity scores, and cross-organ concordance analysis  
+
+Script:
+
+- `6.Single_cell_expression/script7_cellxgene_expression_mapping.py`
+
+This module maps the expression of the final gene set across human vascular cell populations using the CellxGene Census dataset. Analyses are performed on heart and brain vascular compartments, including endothelial, pericyte, and smooth muscle cell populations.
+
+The workflow computes normalized gene expression, cell-type specificity using the Tau index, and cross-organ concordance based on mean expression profiles. This enables evaluation of tissue- and cell-type-specific expression patterns of the identified genes.
+
+---
+
+### 8. Network Analysis (Cytoscape)
+
+**Input:** `Shared_genes_final.xlsx`  
+**Output:** gene interaction network visualizations and Cytoscape session files  
+
+This module performs network-based functional association analysis using Cytoscape (v3.10.3) with the GeneMANIA plugin (v3.5.3).
+
+The network is constructed using the final gene set without the addition of external genes, and network weighting is set to automatic. The resulting network integrates multiple functional association sources, including co-expression, pathway co-membership, and predicted functional relationships.
+
+The network is interpreted as a representation of gene functional relatedness and prioritization rather than evidence of direct mechanistic interaction or causality.
+
+---
+
+
 ## Requirements and Setup
 
 ### Python / Conda Environment
